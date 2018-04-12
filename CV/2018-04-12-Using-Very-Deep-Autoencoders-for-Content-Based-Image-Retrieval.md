@@ -11,7 +11,9 @@ Stacked RBMによって初期化されたAutoencoderをBackpropagationによっ�
 Autoencoderにて行ったfine-tuningによって,RBMの重みは多少しか変化しなかったものの,復元画像の精度は著しく改善された.
 
 ## 4. どうやって有効だと検証した？
-256-bitのバイナリ列に変換された160万画像の線形検索は,pixel空間でユークリッド距離による検索より高い精度を示し,計算時間も1000倍高速であった.
+8000万枚から構成されるで画像データセットのサブセットを2つ用いてモデルのテストを行った.
+ノイズの多いデータラベルは学習には使用しなかった.
+160万個の256-bitバイナリ列の線形検索は,pixel空間でユークリッド距離を指標とした検索より高い精度を示し,計算時間も1000倍高速であった.
 
 ### メモ
 ユークリッド距離を指標にした検索では,平滑な画像が類似画像としてヒットすることが多い. 画像の高周波成分をマッチングできない場合,pixelの平均値を合わせることで距離を最小化するiことができる. 画像認識において低次なpixelより画像に含まれる物体といった高次な情報のほうが重要.
@@ -23,6 +25,7 @@ Autoencoderにて行ったfine-tuningによって,RBMの重みは多少しか変
 [6] Semantic hashing. In Proceedings of the SIGIR Workshop on Information Retrieval and Applications of Graphical Models, Amsterdam, 2007.
 
 ### 論文情報・参考サイト
+http://www.cs.toronto.edu/~fritz/absps/esann-deep-final.pdf
 https://www.youtube.com/watch?v=MSYmyJgYOnU
 
 ## メモ
